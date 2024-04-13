@@ -167,8 +167,11 @@ def get_avg(df: pd.DataFrame, year):
         dtype: float64
 
     """
-    # <COMPLETE THIS PART>
 
+    df_year = df[df.index.year == year]
+    df_year = df_year.dropna()
+    year_avg = df_year.mean()
+    return year_avg
 
 def get_cumulative_ret(df):
     """ Returns cumulative returns for input DataFrame.
