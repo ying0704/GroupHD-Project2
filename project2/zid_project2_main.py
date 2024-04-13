@@ -199,7 +199,8 @@ def get_cumulative_ret(df):
 
     """
     # <COMPLETE THIS PART>
-
+    cml_returns = (1 + df).prod() - 1
+    return cml_returns
 
 # ----------------------------------------------------------------------------
 # Part 8: Answer questions
