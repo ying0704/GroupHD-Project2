@@ -199,6 +199,8 @@ def get_cumulative_ret(df):
 
     """
     # <COMPLETE THIS PART>
+    cumulative_return = (1 + df.iloc[:, 0]).prod() - 1
+    return cumulative_return
 
 
 # ----------------------------------------------------------------------------
