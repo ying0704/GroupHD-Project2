@@ -11,7 +11,10 @@
 
 # <COMPLETE THIS PART>
 
-
+import util as util
+import config as cfg
+import pandas as pd
+import os
 
 # ----------------------------------------------------------------------------
 # Part 4.2: Complete the read_prc_csv function
@@ -99,6 +102,12 @@ def read_prc_csv(tic, start, end, prc_col='Adj Close'):
     """
 
     # <COMPLETE THIS PART>
+    filename = f"{tic}_prc.csv"
+    file_path = os.path.join(cfg.DATADIR, filename)
+    df = pd.read_csv(file_path, parse_dates=['Date'], index_col='Date')
+    df = df[(df.index >= pd.to_datetime(start)) & (df.index <= pd.to_datetime(end))]
+    ser = df[prc_col].rename(tic.lower())
+    return ser.dropna()
 
 
 # ----------------------------------------------------------------------------
@@ -187,7 +196,14 @@ def daily_return_cal(prc):
 
     """
     # <COMPLETE THIS PART>
+    daily_returns = pd.Series(index=prc.index, dtype='float64')
+    daily_returns.name = prc.name
 
+    for i in range(1, len(prc)):
+        daily_returns.iloc[i] = (prc.iloc[i] - prc.iloc[i - 1]) / prc.iloc[i - 1]
+    daily_returns = daily_returns.dropna()
+
+    return daily_returns
 
 # ----------------------------------------------------------------------------
 # Part 4.4: Complete the monthly_return_cal function
@@ -290,6 +306,19 @@ def monthly_return_cal(prc):
 
     """
     # <COMPLETE THIS PART>
+    monthly_counts = prc.resample('ME').count()
+    valid_months = monthly_counts[monthly_counts >= 18].index
+    monthly_prices_all = prc.resample('ME').last()
+
+    monthly_returns_all = (monthly_prices_all - monthly_prices_all.shift(1)) / monthly_prices_all.shift(1)
+    monthly_returns_all.index = monthly_returns_all.index.to_period('M')
+    monthly_returns_valid = monthly_returns_all[monthly_returns_all.index.isin(valid_months.to_period('M'))]
+    monthly_returns_valid.dropna(inplace=True)
+
+    monthly_returns_valid.index.name = 'Year_Month'
+    monthly_returns_valid.name = prc.name
+
+    return monthly_returns_valid
 
 
 # ----------------------------------------------------------------------------
@@ -403,6 +432,20 @@ def aj_ret_dict(tickers, start, end):
         ----------------------------------------
     """
     # <COMPLETE THIS PART>
+    daily_returns_dict = {}
+    monthly_returns_dict = {}
+
+    for tic in tickers:
+        prc = read_prc_csv(tic, start, end)
+        daily_returns = daily_return_cal(prc)
+        monthly_returns = monthly_return_cal(prc)
+        daily_returns_dict[tic.lower()] = daily_returns
+        monthly_returns_dict[tic.lower()] = monthly_returns
+
+    daily_return_df = pd.DataFrame(daily_returns_dict)
+    monthly_return_df = pd.DataFrame(monthly_returns_dict)
+
+    return {"Daily": daily_return_df, "Monthly": monthly_return_df}
 
 
 # ----------------------------------------------------------------------------

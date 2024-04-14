@@ -10,6 +10,23 @@
 #       For details, review the import statements in zid_project2_main.py
 
 # <COMPLETE THIS PART>
+# Importing project-specific modules with specified aliases
+import project2.config as cfg
+import project2.zid_project2_etl as etl
+import project2.zid_project2_characteristics as cha
+import project2.zid_project2_portfolio as pf
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+import sys
+import logging
+import datetime
+import requests
+import sqlalchemy as sql
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 
 
 # ----------------------------------------------------------------------------------------
@@ -147,7 +164,28 @@ def vol_cal(ret, cha_name, ret_freq_use: list):
     """
 
     # <COMPLETE THIS PART>
+    daily_returns = ret[ret_freq_use[0]].copy()  # Assuming 'Daily' data is needed and is the first item
 
+    # Convert the index to a PeriodIndex at monthly frequency for easier grouping
+    daily_returns.index = pd.to_datetime(daily_returns.index).to_period('M')
+
+    # Prepare an empty DataFrame to store volatility results
+    df_volatility = pd.DataFrame()
+
+    # Calculate the standard deviation for each stock for each month
+    for column in daily_returns.columns:
+        # Group by month and calculate standard deviation if count of returns is >= 18
+        grouped = daily_returns[column].groupby(level=0)  # Group by the new PeriodIndex
+        vol = grouped.agg(lambda x: x.std() if len(x) >= 18 else None)
+        df_volatility[f"{column}_{cha_name}"] = vol  # Append the characteristic name to column
+
+    # Remove rows where all elements are NaN
+    df_volatility.dropna(how='all', inplace=True)
+
+    # Set the name of the index to be more descriptive
+    df_volatility.index.rename('Year_Month', inplace=True)
+
+    return df_volatility
 
 # ----------------------------------------------------------------------------
 # Part 5.5: Complete the merge_tables function
@@ -220,7 +258,24 @@ def merge_tables(ret, df_cha, cha_name):
      - Read shift() documentations to understand how to shift the values of a DataFrame along a specified axis
     """
     # <COMPLETE THIS PART>
+    monthly_returns = ret['Monthly'].copy()  # Assume the dictionary has a key 'Monthly' for monthly returns
 
+    # Ensure both DataFrames have the same type of index for merging
+    monthly_returns.index = pd.to_datetime(monthly_returns.index).to_period('M')
+    df_cha.index = pd.to_datetime(df_cha.index).to_period('M')
+
+    # Merge the DataFrames on the index (Year_Month)
+    merged_df = monthly_returns.merge(df_cha, left_index=True, right_index=True, how='left')
+
+    # Shift the characteristic columns one month forward
+    # We identify characteristic columns by the suffix and shift only those
+    cha_columns = [col for col in merged_df.columns if cha_name in col]
+    merged_df[cha_columns] = merged_df[cha_columns].shift(1)
+
+    # The index is already a Monthly frequency PeriodIndex, set its name
+    merged_df.index.rename('Year_Month', inplace=True)
+
+    return merged_df
 
 # ------------------------------------------------------------------------------------
 # Part 5.2: Read the cha_main function and understand the workflow in this script
@@ -270,6 +325,15 @@ def cha_main(ret, cha_name, ret_freq_use: list):
         in the module with appropriate logic to handle the inputs and outputs as described.
     """
     # <COMPLETE THIS PART>
+    vol_input_sanity_check(ret, cha_name, ret_freq_use)
+
+    # Step 2: Calculate the volatility characteristics from daily returns
+    df_cha = vol_cal(ret, cha_name, ret_freq_use)
+
+    # Step 3: Merge the characteristics data with the monthly returns data
+    df_merged = merge_tables(ret, df_cha, cha_name)
+
+    return df_merged
 
 
 def _test_ret_dict_gen():
