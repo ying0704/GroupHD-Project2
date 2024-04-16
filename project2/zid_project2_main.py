@@ -295,21 +295,21 @@ Q7_ANSWER = '?'
 # Q8: How many rows and columns in the EW_LS_pf_df data frame?
 #     Answer should be two integer, the first represent number of rows and the two numbers need to be
 #     separated by a comma.
-Q8_ANSWER = '?'
+Q8_ANSWER = 235,4
 
 
 # Q9: What is the average equal weighted portfolio return of the quantile with the
 #     lowest total volatility for the year 2019?
 #     Use the output dataframe, EW_LS_pf_d, and auxiliary function in this script
 #     to do the calculation.
-Q9_ANSWER = '?'
+Q9_ANSWER = 0.0195
 
 
 # Q10: What is the cumulative portfolio return of the total volatility long-short portfolio
 #      over the whole sample period?
 #      Use the output dataframe, EW_LS_pf_d, and auxiliary function in this script
 #     to do the calculation.
-Q10_ANSWER = '?'
+Q10_ANSWER = 1.6391
 
 
 # ----------------------------------------------------------------------------
@@ -341,6 +341,30 @@ n_obs = '?'
 
 # <ADD THE t_stat FUNCTION HERE>
 
+def t_stat(df, column_name):
+    data = df[column_name].dropna()
+    mean_val = data.mean()
+    # Calculate the sample standard deviation (ddof=1 for sample standard deviation)
+    std_dev = data.std(ddof=1)
+    # Count the number of observations
+    n_obs = data.count()
+    # Calculate the t-statistic
+    if n_obs > 1 and std_dev > 0:  # Prevent division by zero and ensure there's enough data
+        t_statistic = (mean_val - 0) / (std_dev / np.sqrt(n_obs))
+    else:
+        t_statistic = np.nan
+    # keep 4 decimal places if it is not an integer:
+    formatted_mean = round(mean_val, 4)
+    formatted_t_stat = round(t_statistic, 4) if not np.isnan(t_statistic) else t_statistic
+
+    # Create a DataFrame to return results
+    results_df = pd.DataFrame({
+        'ls_bar': [formatted_mean],
+        'ls_t': [formatted_t_stat],
+        'n_obs': [n_obs]
+    })
+
+    return results_df
 
 # ----------------------------------------------------------------------------
 # Part 10: share your team's project 2 git log
