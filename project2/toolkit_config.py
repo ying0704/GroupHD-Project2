@@ -1,0 +1,1 @@
+PRJDIR = 'C:\\project2'
