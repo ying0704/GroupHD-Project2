@@ -248,13 +248,14 @@ def get_cumulative_ret(df):
 #     ticker for this stock.
 #     Use the output dictionary, DM_Ret_dict, and auxiliary function in this script
 #     to do the calculation.
-Q1_ANSWER = '?'
+
+Q1_ANSWER = 'NVDA'
 
 
 # Q2: What is the daily average return of the stock in question 1 for the year 2008.
 #     Use the output dictionary, DM_Ret_dict, and auxiliary function in this script
 #     to do the calculation.
-Q2_ANSWER = '?'
+Q2_ANSWER = -0.0042
 
 
 # Q3: Which stock in your sample has the highest average monthly return for the
