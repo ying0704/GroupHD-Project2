@@ -6,14 +6,7 @@
 # Part 6: read and utilize portfolio construction functions in
 #         zid_project2_portfolio.py to answer the questions in Part 7
 # ------------------------------------------------------------------------------------------------------------------
-
-import zid_project2_etl as etl
-import zid_project2_characteristics as cha
-import pandas as pd
-import numpy as np
-import util
-import sys
-
+#import...
 
 def pf_input_sanity_check(df_cha, cha_name):
 
