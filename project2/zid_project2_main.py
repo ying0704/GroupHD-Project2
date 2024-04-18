@@ -415,7 +415,7 @@ git_log = """?"""
 # Please use Zoom to record it. The final submission should be a zoom recording link.
 
 # Please replace the '?' with your team's presentation video zoom link:
-Presentation_zoom_link = 'https://unsw-my.sharepoint.com/:v:/r/personal/z5529688_ad_unsw_edu_au/Documents/159_1713443978.mp4?csf=1&web=1&e=D10urA'
+Presentation_zoom_link = 'https://youtu.be/yPpSc2wyjog'
 Password_of_your_video = '?'
 
 
