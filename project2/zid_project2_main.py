@@ -22,6 +22,11 @@
 # are imported as "cfg", and "util"
 #
 # <COMPLETE THIS PART>
+import config as cfg
+import util as util
+import numpy as np
+import os
+import datetime
 
 
 # We've imported other needed scripts and defined aliases. Please keep using the same aliases for them in this project.
@@ -262,13 +267,13 @@ Q2_ANSWER = '-0.0042'
 #     ticker for this stock.
 #     Use the output dictionary, DM_Ret_dict, and auxiliary function in this script
 #     to do the calculation.
-Q3_ANSWER = '?'
+Q3_ANSWER = 'NVDA'
 
 
 # Q4: What is the average monthly return of the stock in question 3 for the year 2019.
 #     Use the output dictionary, DM_Ret_dict, and auxiliary function in this script
 #     to do the calculation.
-Q4_ANSWER = '?'
+Q4_ANSWER = '0.083'
 
 
 # Q5: What is the average monthly total volatility for stock 'TSLA' in the year 2010?
