@@ -267,13 +267,13 @@ Q2_ANSWER = '-0.0042'
 #     ticker for this stock.
 #     Use the output dictionary, DM_Ret_dict, and auxiliary function in this script
 #     to do the calculation.
-Q3_ANSWER = 'NVDA'
+Q3_ANSWER = 'AAPL'
 
 
 # Q4: What is the average monthly return of the stock in question 3 for the year 2019.
 #     Use the output dictionary, DM_Ret_dict, and auxiliary function in this script
 #     to do the calculation.
-Q4_ANSWER = '0.083'
+Q4_ANSWER = '0.05'
 
 
 # Q5: What is the average monthly total volatility for stock 'TSLA' in the year 2010?
