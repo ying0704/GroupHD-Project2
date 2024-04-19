@@ -394,7 +394,30 @@ def t_stat(df, column_name):
 # .......
 #
 # Please replace the """?""" with your team's project 2 git log:
-git_log = """?"""
+git_log = """98e03f7	zid5539038 Guoqing Yao	Fri Apr 19 13:47:28 2024 +1000	new add
+df8cb60	zid5539038 Guoqing Yao	Fri Apr 19 13:18:11 2024 +1000	Update zid_project2_etl.py
+7251bc7	zid5529688ZunxianZhao	Fri Apr 19 12:38:32 2024 +1000	Merge branch 'main' of https://github.com/ying0704/GroupHD-Project2
+fa08c96	zid5529688ZunxianZhao	Fri Apr 19 12:38:07 2024 +1000	Update zid_project2_main.py
+411ed3a	zid5539038 Guoqing Yao	Fri Apr 19 11:56:39 2024 +1000	.
+6364974	zid5539630RuiqiCao	Thu Apr 18 23:44:48 2024 +1000	Add files via upload
+dabed4d	zid5539630RuiqiCao	Thu Apr 18 23:42:43 2024 +1000	Add files via upload
+ce8b949	zid5529688ZunxianZhao	Thu Apr 18 23:08:14 2024 +1000	Update zid_project2_main.py
+d7c4911	zid5529688ZunxianZhao	Thu Apr 18 23:02:18 2024 +1000	Update zid_project2_main.py
+7719d83	zid5529688ZunxianZhao	Thu Apr 18 19:52:58 2024 +1000	Update zid_project2_main.py
+62e736f	ying0704	Thu Apr 18 08:15:52 2024 +1000	z5503476
+c01bb80	Ziyan Kang	Wed Apr 17 01:32:49 2024 +1000	z5494646-ZiyanKang
+a08bc87	Ziyan Kang	Wed Apr 17 01:27:56 2024 +1000	z5494646-ZiyanKang
+761b754	zid5539038 Guoqing Yao	Tue Apr 16 20:31:31 2024 +1000	Add files via upload
+a860662	zid5539038 Guoqing Yao	Tue Apr 16 06:09:08 2024 -0400	Delete project2/data/toolkit_config
+95959d9	zid5539038 Guoqing Yao	Tue Apr 16 06:05:55 2024 -0400	Create toolkit_config
+dc7952b	zid5539038 Guoqing Yao	Tue Apr 16 06:03:07 2024 -0400	Update zid_project2_main.py
+22f9bc3	ying0704	Mon Apr 15 01:48:04 2024 +1000	z5503476_firstupdate
+7ad5fe0	Ziyan Kang	Sat Apr 13 17:04:07 2024 +1000	z5494646-ZiyanKang
+0aa60b5	zid5529688ZunxianZhao	Sat Apr 13 16:58:41 2024 +1000	Update zid_project2_main.py
+962262a	zid5529688ZunxianZhao	Sat Apr 13 16:45:57 2024 +1000	Update zid_project2_main.py
+4183b9a	zid5529688ZunxianZhao	Sat Apr 13 16:18:21 2024 +1000	ZunxianZhao Part7
+e9e3627	zid5529688ZunxianZhao	Fri Apr 12 19:10:59 2024 +1000	ZunxianZhao
+2bada7b	zid5503476xintongying	Wed Apr 10 22:54:16 2024 +1000	Initial commit"""
 
 # ----------------------------------------------------------------------------
 # Part 11: project 2 mini-presentation
