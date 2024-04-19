@@ -197,8 +197,8 @@ def get_cumulative_ret(df):
 
     """
     # <COMPLETE THIS PART>
-    cumulative_return = (1 + df.iloc[:, 0]).prod() - 1
-    return cumulative_return
+    cumulative_returns = (1 + df.fillna(0)).prod() - 1
+    return cumulative_returns
 
 
 # ----------------------------------------------------------------------------
@@ -273,6 +273,7 @@ Q4_ANSWER = '0.0501'
 #     Use the output dataframe, Vol_Ret_mrg_df, and auxiliary function in this script
 #     to do the calculation.
 Q5_ANSWER = '0.4031'
+
 
 
 # Q6: What is the ratio of the average monthly total volatility for stock 'V'
