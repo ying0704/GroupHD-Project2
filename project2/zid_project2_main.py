@@ -336,9 +336,9 @@ Q10_ANSWER = 1.6391
 # Please replace the '?' of ls_bar, ls_t and n_obs variables below
 # with the respective values of the 'ls' column in EW_LS_pf_df from Part 8,
 # keep 4 decimal places if it is not an integer:
-ls_bar = '?'
-ls_t = '?'
-n_obs = '?'
+ls_bar = '0.0074'
+ls_t = '1.3972'
+n_obs = '235'
 # ls_bar = '0.0073'
 # ls_t = '1.3847'
 # n_obs = '235'
