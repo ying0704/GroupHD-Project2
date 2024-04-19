@@ -22,21 +22,14 @@
 # are imported as "cfg", and "util"
 #
 # <COMPLETE THIS PART>
-import config as cfg
+
 import util as util
-import numpy as np
+import config as cfg
+import pandas as pd
 import os
-import datetime
-
-
-# We've imported other needed scripts and defined aliases. Please keep using the same aliases for them in this project.
 import zid_project2_etl as etl
 import zid_project2_characteristics as cha
 import zid_project2_portfolio as pf
-
-import pandas as pd
-
-
 # -----------------------------------------------------------------------------------------------
 # Part 3: Follow the workflow in portfolio_main function
 #         to understand how this project construct total volatility long-short portfolio
@@ -279,14 +272,14 @@ Q4_ANSWER = '0.0501'
 # Q5: What is the average monthly total volatility for stock 'TSLA' in the year 2010?
 #     Use the output dataframe, Vol_Ret_mrg_df, and auxiliary function in this script
 #     to do the calculation.
-Q5_ANSWER = '?'
+Q5_ANSWER = '0.4031'
 
 
 # Q6: What is the ratio of the average monthly total volatility for stock 'V'
 #     in the year 2008 to that in the year 2018? Keep 1 decimal places.
 #     Use the output dataframe, Vol_Ret_mrg_df, and auxiliary function in this script
 #     to do the calculation.
-Q6_ANSWER = '?'
+Q6_ANSWER = '6'
 
 
 # Q7: How many effective year-month for stock 'TSLA' in year 2010. An effective year-month
@@ -294,7 +287,7 @@ Q6_ANSWER = '?'
 #     are not null.
 #     Use the output dataframe, Vol_Ret_mrg_df, to do the calculation.
 #     Answer should be an integer
-Q7_ANSWER = '?'
+Q7_ANSWER = '6'
 
 
 # Q8: How many rows and columns in the EW_LS_pf_df data frame?
@@ -439,7 +432,7 @@ e9e3627	zid5529688ZunxianZhao	Fri Apr 12 19:10:59 2024 +1000	ZunxianZhao
 
 # Please replace the '?' with your team's presentation video zoom link:
 Presentation_zoom_link = 'https://youtu.be/yPpSc2wyjog'
-Password_of_your_video = '?'
+Password_of_your_video = 'No password'
 
 
 def _test_get_avg():
