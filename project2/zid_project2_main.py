@@ -273,7 +273,7 @@ Q3_ANSWER = 'AAPL'
 # Q4: What is the average monthly return of the stock in question 3 for the year 2019.
 #     Use the output dictionary, DM_Ret_dict, and auxiliary function in this script
 #     to do the calculation.
-Q4_ANSWER = '0.05'
+Q4_ANSWER = '0.0501'
 
 
 # Q5: What is the average monthly total volatility for stock 'TSLA' in the year 2010?
@@ -300,21 +300,21 @@ Q7_ANSWER = '?'
 # Q8: How many rows and columns in the EW_LS_pf_df data frame?
 #     Answer should be two integer, the first represent number of rows and the two numbers need to be
 #     separated by a comma.
-Q8_ANSWER = 235,4
+Q8_ANSWER = '235,4'
 
 
 # Q9: What is the average equal weighted portfolio return of the quantile with the
 #     lowest total volatility for the year 2019?
 #     Use the output dataframe, EW_LS_pf_d, and auxiliary function in this script
 #     to do the calculation.
-Q9_ANSWER = 0.0195
+Q9_ANSWER = '0.0195'
 
 
 # Q10: What is the cumulative portfolio return of the total volatility long-short portfolio
 #      over the whole sample period?
 #      Use the output dataframe, EW_LS_pf_d, and auxiliary function in this script
 #     to do the calculation.
-Q10_ANSWER = 1.6391
+Q10_ANSWER = '1.6391'
 
 
 # ----------------------------------------------------------------------------
