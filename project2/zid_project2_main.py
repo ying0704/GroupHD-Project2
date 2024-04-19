@@ -388,7 +388,11 @@ def t_stat(df, column_name):
 # .......
 #
 # Please replace the """?""" with your team's project 2 git log:
-git_log = """98e03f7	zid5539038 Guoqing Yao	Fri Apr 19 13:47:28 2024 +1000	new add
+git_log = """d4f954f	Ziyan Kang	Fri Apr 19 16:11:12 2024 +1000	z5494646-ZiyanKang
+08e12ca	ying0704	Fri Apr 19 15:59:05 2024 +1000	z5503476_2
+0b061f0	zid5529688ZunxianZhao	Fri Apr 19 14:42:55 2024 +1000	Update zid_project2_main.py
+3368400	zid5529688ZunxianZhao	Fri Apr 19 14:38:27 2024 +1000	Update zid_project2_main.py
+98e03f7	zid5539038 Guoqing Yao	Fri Apr 19 13:47:28 2024 +1000	new add
 df8cb60	zid5539038 Guoqing Yao	Fri Apr 19 13:18:11 2024 +1000	Update zid_project2_etl.py
 7251bc7	zid5529688ZunxianZhao	Fri Apr 19 12:38:32 2024 +1000	Merge branch 'main' of https://github.com/ying0704/GroupHD-Project2
 fa08c96	zid5529688ZunxianZhao	Fri Apr 19 12:38:07 2024 +1000	Update zid_project2_main.py
